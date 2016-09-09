@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>mod_hec_facebook_feed</name>
+	<author>Hervé CYR</author>
+	<creationDate>Sept 2016</creationDate>
+	<copyright>Copyright (C) 2005 - 2016 HECSoft All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>contact@hecsoft.net</authorEmail>
+	<authorUrl>joomla.hecsoft.net</authorUrl>
+	<version>0.0.0</version>
+	<description>MOD_HEC_FACEBOOK_FEED_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_hec_facebook_feed">mod_hec_facebook_feed.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_hec_facebook_feed.ini</language>
+		<language tag="en-GB">en-GB.mod_hec_facebook_feed.sys.ini</language>
+		
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_RANDOM_IMAGE" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="client_id"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_ID_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_ID_DESC"
+					default="xxxxxxxxxxxxxxx"
+				/>
+				<field
+					name="client_secret"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_SECRET_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_SECRET_DESC"
+					default="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+				/>
+
+				<field
+					name="pagename"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_DESC"
+				/>
+
+				<field
+					name="feed_count"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_FEEDCOUNT_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_FEEDCOUNT_DESC"
+				/>
+
+				<field
+					name="width"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_WIDTH_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_WIDTH_DESC"
+				/>
+
+				<field
+					name="height"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_HEIGHT_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_HEIGHT_DESC"
+				/>
+
+			</fieldset>
+			<fieldset name="layout">
+				<field
+					name="comment_text"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_COMMENT_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_COMMENT_DESC"
+					default="Our Comment : {comment}"
+				/>
+				<field	name="photo_title_text"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_PHOTO_TITLE_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_PHOTO_TITLE_DESC"
+					default="Picture from : {name}"
+				/>
+				<field	name="link_title_text"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_LINK_TITLE_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_LINK_TITLE_DESC"
+					default="Link from : {name}"
+				/>
+				<field	name="video_title_text"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_VIDEO_TITLE_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_VIDEO_TITLE_DESC"
+					default="Video From : {name}"
+				/>
+				<field	name="default_title_text"
+					type="text"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_DEFAULT_TITLE_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_DEFAULT_TITLE_DESC"
+					default="Post from : {name}"
+				/>
+			</fieldset>
+			<fieldset name="layout">
+				<field
+					name="show_events"
+					type="checkbox"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_SHOW_EVENTS_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_SHOW_EVENTS_DESC"
+					default="0"
+				/>
+			</fieldset>	
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="0"
+					>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
