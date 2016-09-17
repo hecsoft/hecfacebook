@@ -12,9 +12,11 @@ defined('_JEXEC') or die;
 // Include the random image functions only once
 require_once __DIR__ . '/helper.php';
 
-$link   = $params->get('link');
+$width   = $params->get('width','100%');
+$height   = $params->get('height','100%');
+$use_videojs   = ($params->get('use_videojs','0')=='1');
 $feeds = ModHECFacebookFeedHelper::getFeeds($params);
-
+$pagename   = $params->get('pagename', '');
 
 if (!count($feeds))
 {

@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>contact@hecsoft.net</authorEmail>
 	<authorUrl>joomla.hecsoft.net</authorUrl>
-	<version>0.0.0</version>
+	<version>0.0.1</version>
 	<description>MOD_HEC_FACEBOOK_FEED_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_hec_facebook_feed">mod_hec_facebook_feed.php</filename>
@@ -17,7 +17,8 @@
 	<languages>
 		<language tag="en-GB">en-GB.mod_hec_facebook_feed.ini</language>
 		<language tag="en-GB">en-GB.mod_hec_facebook_feed.sys.ini</language>
-		
+		<language tag="fr-FR">fr-FR.mod_hec_facebook_feed.ini</language>
+		<language tag="fr-FR">fr-FR.mod_hec_facebook_feed.sys.ini</language>
 	</languages>
 	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_RANDOM_IMAGE" />
 	<config>
@@ -28,21 +29,21 @@
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_ID_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_ID_DESC"
-					default="xxxxxxxxxxxxxxx"
+					default="" hint="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_ID_HINT"
 				/>
 				<field
 					name="client_secret"
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_SECRET_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_SECRET_DESC"
-					default="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+					default="" hint="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_SECRET_HINT"
 				/>
 
 				<field
 					name="pagename"
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_LABEL"
-					description="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_DESC"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_DESC" hint="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_HINT"
 				/>
 
 				<field
@@ -65,7 +66,13 @@
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_HEIGHT_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_HEIGHT_DESC"
 				/>
-
+				<field
+					name="use_videojs"
+					type="checkbox"
+					label="MOD_HEC_FACEBOOK_FEED_FIELD_USE_VIDEOJS_LABEL"
+					description="MOD_HEC_FACEBOOK_FEED_FIELD_USE_VIDEOJS_DESC"
+					value="1" 
+				/>
 			</fieldset>
 			<fieldset name="layout">
 				<field
@@ -73,31 +80,31 @@
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_COMMENT_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_COMMENT_DESC"
-					default="Our Comment : {comment}"
+					
 				/>
 				<field	name="photo_title_text"
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_PHOTO_TITLE_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_PHOTO_TITLE_DESC"
-					default="Picture from : {name}"
+					
 				/>
 				<field	name="link_title_text"
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_LINK_TITLE_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_LINK_TITLE_DESC"
-					default="Link from : {name}"
+					
 				/>
 				<field	name="video_title_text"
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_VIDEO_TITLE_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_VIDEO_TITLE_DESC"
-					default="Video From : {name}"
+					
 				/>
 				<field	name="default_title_text"
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_DEFAULT_TITLE_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_DEFAULT_TITLE_DESC"
-					default="Post from : {name}"
+					
 				/>
 			</fieldset>
 			<fieldset name="layout">
