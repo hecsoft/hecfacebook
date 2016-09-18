@@ -14,6 +14,7 @@
 		<folder>tmpl</folder>
 		<folder>video-js</folder>
 		<filename>helper.php</filename>
+		<filename>index.html</filename>
 	</files>
 	<languages>
 		<language tag="en-GB">en-GB.mod_hec_facebook_feed.ini</language>
@@ -161,6 +162,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="module" name="HEC Facebook Feed" priority="1">http://updater.hecsoft.net/hec_facebook_feed_update.xml</server>
+		<server type="module" name="HEC Facebook Feed" priority="1">http://joomla.hecsoft.net/update/hec_facebook_feed_update.xml</server>
 	</updateservers>
 </extension>
