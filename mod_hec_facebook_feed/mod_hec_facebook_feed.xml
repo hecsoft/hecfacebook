@@ -18,8 +18,8 @@
 	<languages>
 		<language tag="en-GB">en-GB.mod_hec_facebook_feed.ini</language>
 		<language tag="en-GB">en-GB.mod_hec_facebook_feed.sys.ini</language>
-		<language tag="fr-FR">en-GB.mod_hec_facebook_feed.ini</language>
-		<language tag="fr-FR">en-GB.mod_hec_facebook_feed.sys.ini</language>
+		<language tag="fr-FR">fr-FR.mod_hec_facebook_feed.ini</language>
+		<language tag="fr-FR">fr-FR.mod_hec_facebook_feed.sys.ini</language>
 	</languages>
 	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_RANDOM_IMAGE" />
 	<config>
@@ -160,4 +160,7 @@
 			</fieldset>
 		</fields>
 	</config>
+	<updateservers>
+		<server type="module" name="HEC Facebook Feed" priority="1">http://updater.hecsoft.net/hec_facebook_feed_update.xml</server>
+	</updateservers>
 </extension>
