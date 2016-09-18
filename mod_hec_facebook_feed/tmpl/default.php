@@ -178,6 +178,8 @@ jQuery(function(){
 <?php } ?>
 }
 #hec-facebook-feed ul { margin:0px; }
+.link-image {float:left;max-width:95%; margin-right:5px;}
+.photo-image { width:100%;}
 </style>
 <!-- Load Facebook SDK for JavaScript -->
 	

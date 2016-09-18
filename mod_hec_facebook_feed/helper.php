@@ -36,6 +36,10 @@ class ModHECFacebookFeedHelper
 		$feedcount   = $params->get('feed_count', '5');
 		$width   = $params->get('width', '100%');
 		$height   = $params->get('height', '');
+		$videowidth   = $params->get('videowidth', '');
+		if ($videowidth!='') $videowidth=" width='$videowidth'";
+		$videoheight   = $params->get('videoheight', '');
+		if ($videoheight!='') $videoheight=" height='$videoheight'";
 		
 		$comment_text   = $params->get('comment_text', '');
 		if ($comment_text=='') $comment_text=JText::_("MOD_HEC_FACEBOOK_FEED_TEMPLATE_COMMENT");
@@ -61,7 +65,7 @@ class ModHECFacebookFeedHelper
 			$tokenresp=explode('=',$tokenresp);
 			$token=$tokenresp[1];
 			// Photos : https://graph.facebook.com/mach78rc/photos?fields=created_time,id,status_type,type,story,message,source,picture,link,name,description,icon,parent_id&access_token=1407222099294113|CmpdVxUxfZTgx4b9Ne9aTtIMrPg
-			$url='https://graph.facebook.com/'.$pagename.'/feed?fields=created_time,id,status_type,type,story,message,source,picture,link,name,description,icon,parent_id&limit='.$feedcount.'&locale=$language&access_token='.$token;
+			$url='https://graph.facebook.com/'.$pagename.'/feed?fields=created_time,id,status_type,type,story,message,source,picture,link,name,description,icon,parent_id,attachments&limit='.$feedcount.'&locale=$language&access_token='.$token;
 			$payload = file_get_contents($url);
 			if (!$payload) return false;
 			$data = json_decode($payload);
@@ -83,20 +87,29 @@ class ModHECFacebookFeedHelper
 						switch($e->type)
 						{
 							case 'photo':
+								$photourl=$e->picture;
+								if (isset($e->attachments))
+								{
+									$media=$e->attachments->data[0]->media;
+									if ($media)
+										$photourl=$media->image->src;
+									
+								
+								}
 								$item->title = str_replace("{name}", $e->name, $photo_title_text );
-								$item->content = "<img src='".$e->picture."' width='100%' />";
+								$item->content = "<img src='".$photourl."' class='photo-image' />";
 								break;
 							case 'video':
 								$item->title = str_replace("{name}", $e->name, $video_title_text );
-								$item->content="<video id='my-video-".$n."' class='video-js' controls preload='none' width='$width' height='auto' 
-											data-setup='{}' poster='".$e->picture."'>
+								$item->content="<video id='my-video-".$n."' class='video-js' controls preload='none'   $videoheight $videowidth
+											data-setup='{\"language\":\"fr\"}' poster='".$e->picture."'>
 											<source src='".$e->source."' type='video/mp4'>
 											<p class='vjs-no-js'>To view this video please enable JavaScript</p>
 										</video>";
 								break;
 							case 'link':
 								$item->title = str_replace("{name}", $e->name, $link_title_text );
-								$item->content = "<img src='".$e->picture."' width='100%' />";
+								$item->content = "<img src='".$e->picture."' class='link-image' />";
 								break;
 							default:
 								$item->title = str_replace("{name}", $e->name, $default_title_text );
