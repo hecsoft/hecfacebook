@@ -18,7 +18,7 @@ defined('_JEXEC') or die;
  */
 class ModHECFacebookFeedHelper
 {
-	
+	public static $lastError = "";
 
 	/**
 	 * Retrieves images from a specific folder
@@ -30,6 +30,7 @@ class ModHECFacebookFeedHelper
 	 */
 	public static function getFeeds(&$params)
 	{
+		self::$lastError="";
 		$client_id   = $params->get('client_id', '');
 		$client_secret   = $params->get('client_secret', '');
 		$pagename   = $params->get('pagename', '');
@@ -62,12 +63,18 @@ class ModHECFacebookFeedHelper
 		$tokenresp = file_get_contents($url);
 		if ($tokenresp)
 		{
-			$tokenresp=explode('=',$tokenresp);
-			$token=$tokenresp[1];
+			$tokendata=json_decode($tokenresp);
+			$token = $tokendata->access_token;
+			//$tokenresp=explode('=',$tokenresp);
+			//$token=$tokenresp[1];
 			// Photos : https://graph.facebook.com/mach78rc/photos?fields=created_time,id,status_type,type,story,message,source,picture,link,name,description,icon,parent_id&access_token=1407222099294113|CmpdVxUxfZTgx4b9Ne9aTtIMrPg
 			$url='https://graph.facebook.com/'.$pagename.'/feed?fields=created_time,id,status_type,type,story,message,source,picture,link,name,description,icon,parent_id,attachments&limit='.$feedcount.'&locale=$language&access_token='.$token;
 			$payload = file_get_contents($url);
-			if (!$payload) return false;
+			if (!$payload) 
+			{
+				self::$lastError = "Bad feed answer";
+				return false;
+			}
 			$data = json_decode($payload);
 			$n=0;
 			foreach($data->data as $e)
@@ -132,10 +139,14 @@ class ModHECFacebookFeedHelper
 				if (!$remove)
 					$feeds[]=$item;
 			}
+			self::$lastError = "OK : ".count($feeds)." feeds";
 			return $feeds;
 		}
-		else return false;
-		
+		else 
+		{
+			self::$lastError = "Error Token";
+			return false;
+		}
 	}
 	
 	public static function addA($string)

@@ -13,9 +13,9 @@ $module_path=JUri::base(true).'/modules/mod_hec_facebook_feed';
 
 if ($use_videojs) {
 ?>
- <link href="<?php echo $module_path; ?>/video-js/video-js.css" rel="stylesheet">
+ <link href="<?php echo $module_path; ?>/video-js/video-js.min.css" rel="stylesheet">
  <script src="<?php echo $module_path; ?>/video-js/ie8/videojs-ie8.min.js"></script>
- <script src="<?php echo $module_path; ?>/video-js/video.js"></script>
+ <script src="<?php echo $module_path; ?>/video-js/video.min.js"></script>
 <style>
 /*
   Player Skin Designer for Video.js
