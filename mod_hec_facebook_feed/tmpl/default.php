@@ -10,12 +10,29 @@
 defined('_JEXEC') or die;
 $app= JFactory::getApplication();
 $module_path=JUri::base(true).'/modules/mod_hec_facebook_feed';
+?>
 
+<script>
+function refreshFeeds()
+{
+	var postData= { <?php echo $postdata; ?> };
+
+	jQuery( "#hec-facebook-feed" ).html( '<div id="wait"></div>');
+	jQuery.post( "index.php?option=com_hecfacebook&task=facebook.feeds&output=html", postData , function( data, status ) {
+		jQuery( "#hec-facebook-feed" ).html( data );
+		
+	});
+}
+
+</script>
+<?php 
 if ($use_videojs) {
 ?>
  <link href="<?php echo $module_path; ?>/video-js/video-js.min.css" rel="stylesheet">
  <script src="<?php echo $module_path; ?>/video-js/ie8/videojs-ie8.min.js"></script>
  <script src="<?php echo $module_path; ?>/video-js/video.min.js"></script>
+ 
+ 
 <style>
 /*
   Player Skin Designer for Video.js
@@ -144,7 +161,7 @@ $slider-bg-color: lighten($primary-background-color, 33%);
   /* Otherwise we'll rely on stacked opacities */
   background: rgba($slider-bg-color, 0.75);
 }
-
+li.feed>div {overflow:auto; width:$width;}
 </style>
 <script>
 jQuery(function(){
@@ -163,12 +180,30 @@ jQuery(function(){
   $results.click(function(){
     $(this).select();
   });
+
+  
 });
 
 </script>
 <?php } ?>
 <style>
-
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+#wait {
+   
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('modules/mod_hec_facebook_feed/tmpl/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
 #hec-facebook-feed {
 <?php if ($height!='') { ?> 
 	overflow-y:scroll; height:<?php echo $height; ?>px;  
@@ -195,22 +230,13 @@ jQuery(function(){
 	<!-- Your like button code -->
 	<div class="fb-like" data-href="https://www.facebook.com/mach78rc" data-width="200px" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
 <!-- <iframe src="http://www.facebook.com/plugins/like.php?href=<?php echo "https://www.facebook.com/mach78rc/"; ?>&layout=standard&show_faces=false&width=450&action=like&colorscheme=light&locale=fr_FR" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:60px;"></iframe> -->
+
 <div id="hec-facebook-feed" class="hec-facebook-feed<?php echo $moduleclass_sfx ?>">
-<ul>
-<?php
-if ($feeds){
-foreach($feeds as $feed)
-{
-	
-	echo "<li class='feed'><div style='overflow:auto; width:$width;' >
-			<h3 class='title'><a href='".$feed->link."' target='_blank'>".$feed->title."</a></h3>";
-	echo "<i class='created_time'>".ModHECFacebookFeedHelper::formatDate($feed->created_time)."</i>";
-	echo $feed->content;
-	echo "<p class='description'>".$feed->description."</p><i class='message'>".$feed->message."</i>";
-	echo "</div></li>";
-}}
-else { ?>
-	<i class="error">Erreur</i>
-<?php } ?>
-</ul>
+
 </div>
+<script>
+
+jQuery( document ).ready(function() {
+	refreshFeeds();
+});
+</script>

@@ -1,0 +1,139 @@
+.icon-48-events {
+      background-image: url(../images/l_events.png);
+      padding-left:60px!important;
+}
+
+.icon-48-event {
+      background-image: url(../images/l_events.png);
+      padding-left:60px!important;
+}
+
+#ui-timepicker-div { font-size: 9pt; }
+div.formlist {
+	width:100%;
+}
+.formlist, .formlist li {
+	list-style-type:none; 
+	width:100%;
+	display:block;
+	clear:both;
+	line-height: 25px;
+	padding-bottom:5px;
+	vertical-align:middle;
+}
+
+
+.inputcontrolold {
+	background-color:rgb(215,215,215);
+	border : 1px groove black;
+}
+
+
+.formlist p{
+width: 300px;
+float: left;
+vertical-align:middle;
+margin-bottom: 5px;
+padding: 5px 0 8px 0;
+border: 1px solid blue;
+height: 16px;
+}
+
+.formlist label {
+	margin-bottom: 5px;
+font-weight: bold;
+vertical-align:middle;
+float: left;
+margin-left: 0px; /*width of left column*/
+width: 150px; /*width of labels. Should be smaller than left column (155px) to create some right margin*/
+height: 16px;
+margin-top:auto;
+}
+
+.formlist input[type="text"]{ /*width of text boxes. IE6 does not understand this attribute*/
+width: 180px;
+}
+
+.formlist .textarea{
+width: 300px;
+height: 150px;
+}
+
+table.monitors, table.students { width:100%;}
+table.monitors thead tr,table.students thead tr { background-color:#ABC8E2}
+
+/*.threepxfix class below:
+Targets IE6- ONLY. Adds 3 pixel indent for multi-line form contents.
+to account for 3 pixel bug: http://www.positioniseverything.net/explorer/threepxtest.html
+*/
+
+* html .threepxfix{
+margin-left: 3px;
+}
+
+
+.event-header
+{
+	background-color:#77ABD6;
+	color:white;
+	padding-left:10px;
+	font-size:120%;
+	height:30px;
+	text-align: left;
+	vertical-align:middle;
+	text-decoration: none;
+}
+.event-header a 
+{
+	color:white;
+	margin:5px;
+	color:#FFEFB6;
+	font-size:120%;
+	text-align: left;
+	vertical-align:center;
+	text-decoration: none;
+}
+.event-person 
+{
+	padding-left:10px;
+	text-align: left;
+	height:30px;
+}
+
+.event-action {
+	padding-left:10px;
+	text-align: left;
+	padding: 5px;
+	vertical-align: center;
+}
+
+.event-action a {
+	margin-left:10px;
+	width:150px;
+	text-align: center;
+	vertical-align: center;
+}
+ul.event-list {
+	width:95%;
+	margin-left:auto;
+}
+ul.event-list li {
+	list-style-type:none; 
+	margin-bottom:15px;
+	color:#080830;
+	padding:0px;
+	background-color:#EFF0FF;
+	border: 1px solid #234CA5;
+	border-left : 3px solid #234CA5;
+	
+}
+ul.event-list li.spacer {
+	background-color:transparent;
+	border:0;
+	
+}
+
+
+ #dialog-form label,#dialog-form  input { display:block; }
+ #dialog-form  input.text { margin-bottom:12px; width:95%; padding: .4em; }
+ #dialog-form  fieldset { padding:0; border:0; margin-top:25px; }

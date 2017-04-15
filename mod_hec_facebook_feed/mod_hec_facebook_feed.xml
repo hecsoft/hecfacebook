@@ -7,12 +7,11 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>contact@hecsoft.net</authorEmail>
 	<authorUrl>joomla.hecsoft.net</authorUrl>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<description>MOD_HEC_FACEBOOK_FEED_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_hec_facebook_feed">mod_hec_facebook_feed.php</filename>
 		<folder>tmpl</folder>
-		<folder>help</folder>
 		<folder>video-js</folder>
 		<filename>helper.php</filename>
 		<filename>index.html</filename>
@@ -28,35 +27,6 @@
 		<fields name="params">
 			<fieldset name="basic">
 				<field
-					name="client_id"
-					type="text"
-					label="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_ID_LABEL"
-					description="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_ID_DESC"
-					default="12345678910111213"
-				/>
-				<field
-					name="client_secret"
-					type="text"
-					label="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_SECRET_LABEL"
-					description="MOD_HEC_FACEBOOK_FEED_FIELD_CLIENT_SECRET_DESC"
-					default="0123456789abcdef0123456789abcdef"
-				/>
-
-				<field
-					name="pagename"
-					type="text"
-					label="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_LABEL"
-					description="MOD_HEC_FACEBOOK_FEED_FIELD_PAGENAME_DESC"
-				/>
-
-				<field
-					name="feed_count"
-					type="text"
-					label="MOD_HEC_FACEBOOK_FEED_FIELD_FEEDCOUNT_LABEL"
-					description="MOD_HEC_FACEBOOK_FEED_FIELD_FEEDCOUNT_DESC"
-				/>
-
-				<field
 					name="width"
 					type="text"
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_WIDTH_LABEL"
@@ -69,8 +39,8 @@
 					label="MOD_HEC_FACEBOOK_FEED_FIELD_HEIGHT_LABEL"
 					description="MOD_HEC_FACEBOOK_FEED_FIELD_HEIGHT_DESC"
 				/>
-				</fieldset>
-				<fieldset name="video">
+			</fieldset>
+			<fieldset name="video">
 				<field
 					name="use_videojs"
 					type="checkbox"

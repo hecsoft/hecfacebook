@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>HEC Facebook</name>
+    <creationDate>2017-04-15</creationDate>
+    <copyright>Copyright (C) 2013 HEC Soft. Tous droits réservés.</copyright>
+    <license>GNU General Public License version 2 ou version ultérieure ; Voir LICENSE.txt</license>
+    <author>Hervé CYR</author>
+    <authorEmail>support@hecsoft.net</authorEmail>
+    <authorUrl>http://joomla.hecsoft.net</authorUrl>
+    <version>1.0.0</version>
+    <description>COM_HEC_FACEBOOK_XML_DESCRIPTION</description>
+    
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>hecfacebook.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>controllers</folder>
+		<folder>helpers</folder>
+        <folder>language</folder>
+    </files>
+    <!--<languages folder="site">
+        
+			<language tag="en-GB">language/en-GB.com_hecfacebook.ini</language>
+			<language tag="fr-FR">language/fr-FR.com_hecfacebook.ini</language>
+    </languages>-->
+    <administration>
+        <menu view="panel" img="components/com_hecmailing/hecfacebook_16x16.png">COM_HEC_FACEBOOK</menu>
+        <files folder="admin">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>index.html</filename>
+			<filename>hecfacebook.php</filename>
+			<filename>controller.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>assets</folder>
+			<folder>views</folder>
+			<folder>models</folder>
+			<folder>language</folder>
+        </files>
+        <!--<languages folder="admin">
+            
+			<language tag="en-GB">language/en-GB/en-GB.com_hecfacebook.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_hecfacebook.sys.ini</language>
+			<language tag="fr-FR">language/fr-FR/fr-FR.com_hecfacebook.ini</language>
+			<language tag="fr-FR">language/fr-FR/fr-FR.com_hecfacebook.sys.ini</language>
+        </languages>-->
+    </administration>
+</extension>
